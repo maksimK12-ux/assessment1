@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration Form</title>
-    <link rel="stylesheet" href="style.css" />
+
+  <meta charset="UTF-8">
+  <title>Registration</title>
+  <link rel="stylesheet">
 </head>
 <body>
-    <h2>Register</h2>
 
-    <form id="regForm">
-        <label>Name: </label>
-        <input type="text" id="name" />
 
-        <label>Email: </label>
-        <input type="text" id="email" />
+  <form id="regForm">
+    <h2>Register for my awesome webiste</h2>
 
-        <label>Date of Birth: </label>
-        <input type="date" id="dob" />
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
 
-        <label>Password: </label>
-        <input type="password" id="password" />
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email"><br><br>
 
-        <button type="submit">Submit</button>
-        <p id="error" class="error"></p>
-    </form>
+    <label for="dob">Birthdate:</label>
+    <input type="date" id="dob" name="dob"><br><br>
 
-    <script src="registration.js"></script>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+
+    <div id="errorMessages" class="error"></div><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script src="registration.js"></script>
 
 </body>
 </html>

@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration Successful</title>
-    <link rel="stylesheet" href="style.css" />
+
+  <meta charset="UTF-8">
+  <title>Registration Completed</title>
+  <link rel="stylesheet">
 </head>
 <body>
-    <div class="result">
-    <h3>Registration Successful</h3>
-        <p><strong>Name:</strong> <span id="rName"></span></p>
-        <p><strong>Email:</strong> <span id="rEmail"></span></p>
-        <p><strong>Date of Birth:</strong> <span id="rDob"></span></p>
-    </div>
 
+  <div class="result">
+    <h2>You have registred for my awesome website</h2>
+    <p>Name:<span id="displayName"></span></p>
+    <p>Email:<span id="displayEmail"></span></p>
+    <p>Date of Birth: <span id="displayDob"></span></p>
+    <p>Password: <span id="displayPassword"></span></p>
 
-    <script src="registration.js"></script>
+    <button onclick="window.location.href='index.html'">Back to Registration</button>
+  </div>
+
+  <script>
+    document.getElementById("displayName").textContent = localStorage.getItem("name");
+    document.getElementById("displayEmail").textContent = localStorage.getItem("email");
+    document.getElementById("displayDob").textContent = localStorage.getItem("dob");
+    document.getElementById("displayPassword").textContent = localStorage.getItem("password");
+  </script>
 </body>
 </html>

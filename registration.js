@@ -1,38 +1,42 @@
-document.getElementById("regForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+document.getElementById("regForm").addEventListener("submit", function(event) {
+  event.preventDefault(); 
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const dob = document.getElementById("dob").value;
-    const password = document.getElementById("password").value;
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let dob = document.getElementById("dob").value;
+  let password = document.getElementById("password").value;
 
-    const error = document.getElementById("error");
-    error.textContent = "";
+  let errors = [];
 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-    if (!name || !email || !dob || !password) {
-    error.textContent = "Complete all the fields.";
-    return;
-    }
+  if (!name || !email || !dob || !password) {
+    errors.push("Please fill in every field");
+  }
 
-    if (!emailPattern.test(email)) {
-    error.textContent = "Enter a valid email address.";
-    return;
-    }
 
-    if (!passwordPattern.test(password)) {
-    error.textContent = "Your password must be 8 characters or longer (Only use letters and numbers)";
-    return;
-    }
+  let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (email && !emailPattern.test(email)) {
+    errors.push("Invalid email format");
+  }
 
-    document.getElementById("rName").textContent = name;
-    document.getElementById("rEmail").textContent = email;
-    document.getElementById("rDob").textContent = dob;
 
-    document.getElementById("regForm").style.display = "none";
-    document.getElementById("result").style.display = "block";
+  let passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  if (password && !passwordPattern.test(password)) {
+    errors.push("Password must be at least 8 characters (only letters and numbers)");
+  }
+
+  let errorDiv = document.getElementById("errorMessages");
+  errorDiv.innerHTML = "";
+
+  if (errors.length > 0) {
+    errorDiv.innerHTML = errors.join("<br>");
+  } else {
+
+    localStorage.setItem("name", name);
+    localStorage.setItem("email", email);
+    localStorage.setItem("dob", dob);
+    localStorage.setItem("password", password);
 
     window.location.href = "result.html";
+  }
 });
