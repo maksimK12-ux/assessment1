@@ -18,4 +18,4 @@ check_username("ilovesoftwareengineering") # Checking if username is more than 1
 check_username("ruru@67") # Checking if username is alphanumeric
 check_username("i<3dogs") # Checking if username can have < or >
 check_username("") # Checks if username can be blank
-check_username("mango67")
+check_username("mango67") # Checks correct username
